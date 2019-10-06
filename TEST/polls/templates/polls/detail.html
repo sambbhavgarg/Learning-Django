@@ -16,8 +16,8 @@
     <br>
   {% endfor %}
   <input type="submit" value="Vote">
-  <!-- Method-calling happens in the {% for %} loop: question.choice_set.all
+  <!-- Method-calling happens in the for loop: question.choice_set.all
   is interpreted as the Python code question.choice_set.all(), which returns
-  an iterable of Choice objects and is suitable for use in the {% for %} tag.
+  an iterable of Choice objects and is suitable for use in the for tag.
   -->
 </form>
