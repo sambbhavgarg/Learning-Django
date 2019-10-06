@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AskUPES</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+     <style>
+     .checkbox + .checkbox {
+       margin-left: .5px;
+     }
+    </style>
+  </head>
+  <body >
+    <nav class="navbar is-warning is-fluid" role="navigation" aria-label="main navigation">
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a>
+            <!-- <img src="/static/images/logo_v1.png" width="50" height="50"> -->
+          </a>
+          <a class="navbar-item">
+            AskUPES
+          </a>
+
+          <a class="navbar-item">
+            Home
+          </a>
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-link">
+            Contact
+          </a>
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+      <!-- <div class="navbar-end">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+             <img src="/static/images/SLT.png" width="112" height="28">
+          </a>
+        </div>
+      </div> -->
+    </nav>
+    <br>
+    <div class="container is-fluid">
+      <div class="notification">
+        <form class="" method="POST"> {% csrf_token %}
+         <div class="field">
+          <div class="control">
+            {{ form.Input }}
+            <br>
+            <span style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+              <input type="submit" class="button is-link" value="Submit">
+            </span>
+          </div>
+         </div>
+        </form>
+      </div>
+      {% for instance in object_list %}
+        <div class="notification">
+          <p>
+            [{{ instance.id }}] {{ instance.Input }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
